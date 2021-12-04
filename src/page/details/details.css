@@ -1,0 +1,71 @@
+label {
+  color: blue;
+}
+.HeadingCard {
+  margin: 0px 0 5px 0;
+  align-items: center;
+}
+.Main_Container {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 100px;
+}
+.left {
+  width: 500px;
+}
+.right {
+  width: 900px;
+}
+.ImageCard {
+  padding: 10px;
+  width: 450px;
+  height: 510px;
+}
+.DetailsCard {
+  padding: 10px;
+  height: 510px;
+}
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.Card_content {
+  overflow: auto;
+}
+
+@media (max-width: 992px) {
+  .Main_Container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+  .header_items1 {
+    border-right: 1px solid black;
+    padding: 20px 70px;
+  }
+  .header_items2 {
+    padding: 20px 70px;
+  }
+  .ImageCard {
+    width: 100%;
+    align-items: center;
+  }
+  .Detail_Content {
+    margin-top: 10px;
+    margin-bottom: 100px;
+  }
+  .HeadingCard {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+}
