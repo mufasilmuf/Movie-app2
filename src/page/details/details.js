@@ -5,12 +5,13 @@ import "./details.css";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Card } from "reactstrap";
+import { Card, Spinner } from "reactstrap";
 
 const Details = () => {
   const History = useHistory();
   const location = useLocation();
   const [MoviesById, setMovieById] = useState([]);
+  const [Loader, setLoader] = useState(false);
 
   const { pathname } = location;
 
@@ -21,12 +22,17 @@ const Details = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(`https://www.omdbapi.com/?i=${imdbId}&apikey=ba811eaa`)
-      .then((response) => {
-        console.log(response.data);
-        setMovieById(response.data);
-      });
+    let callAPI = async () => {
+      setLoader(true);
+      await axios
+        .get(`https://www.omdbapi.com/?i=${imdbId}&apikey=ba811eaa`)
+        .then((response) => {
+          console.log(response.data);
+          setMovieById(response.data);
+        });
+      setLoader(false);
+    };
+    callAPI();
   }, []);
 
   return (
@@ -41,7 +47,11 @@ const Details = () => {
         </div>
         <h3>{MoviesById.Title}</h3>
       </Card>
-
+      {Loader ? (
+        <div className="Spinner">
+          <Spinner color="primary"></Spinner>
+        </div>
+      ) : null}
       <div className="Main_Container">
         <div className="left">
           <Card className="ImageCard">
@@ -72,7 +82,7 @@ const Details = () => {
                 <b>Plot:</b> {MoviesById.Plot}
               </p>
               <p>
-                <b>Runtime</b> {MoviesById.Runtime}
+                <b>Runtime:</b> {MoviesById.Runtime}
               </p>
               <p>
                 <b>Release Date:</b> {MoviesById.Released}

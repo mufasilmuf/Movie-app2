@@ -5,13 +5,13 @@ import logo from "../../assets/logo.png";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar navbar-light bg-primary">
-      <div className="container-fluid">
-        <div className="navbar-brand text-white">
-          <img className="Logo" src={logo} alt="logo" />
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <div class="container-fluid">
+        <div class="navbar-brand">
+          <img src={logo} alt="logo" className="Logo" />
         </div>
         <button
-          className="navbar-toggler"
+          class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -19,12 +19,16 @@ const Header = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item"></li>
-            <li className="nav-item"></li>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <div class="nav-link active" aria-current="page">
+                Browse
+              </div>
+            </li>
           </ul>
         </div>
       </div>

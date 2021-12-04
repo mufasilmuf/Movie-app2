@@ -1,5 +1,5 @@
 import { range } from "lodash";
-import React from "react";
+import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 
 import "./pageInnation.css";
@@ -7,17 +7,28 @@ import "./pageInnation.css";
 const PageInnation = (props) => {
   const { setPage, totalPages, pageNo } = props;
 
+  const [initalPage, setInitialPage] = useState(0);
+  const [lastPage, setLastpage] = useState(5);
+
   let ArrayOfPages = range(totalPages);
 
-  let PageNumbers = ArrayOfPages.slice(0, 5);
+  let PageNumbers = ArrayOfPages.slice(initalPage, lastPage);
 
   let handleClick = (CurPage) => {
     setPage(CurPage);
   };
 
-  let handleNext = () => {};
+  let handleNext = () => {
+    setInitialPage(initalPage + 5);
+    setLastpage(lastPage + 5);
+    setPage(pageNo + 1);
+  };
 
-  let handlePrevious = () => {};
+  let handlePrevious = () => {
+    setInitialPage(initalPage - 5);
+    setLastpage(lastPage - 5);
+    setPage(pageNo - 1);
+  };
 
   return (
     <div className="PageInnation">
@@ -26,7 +37,7 @@ const PageInnation = (props) => {
           <PaginationLink onClick={handlePrevious}>previous</PaginationLink>
         </PaginationItem>
         {PageNumbers.map((page, idx) => {
-          const currentPageNo = idx + 1;
+          const currentPageNo = page + 1;
           return (
             <PaginationItem active={currentPageNo === pageNo}>
               <PaginationLink

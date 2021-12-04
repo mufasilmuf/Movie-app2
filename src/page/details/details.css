@@ -63,6 +63,9 @@ label {
     align-items: center;
   }
 }
+.Spinner {
+  text-align: center;
+}
 @media (max-width: 500px) {
   .HeadingCard,
   .Header_header,
