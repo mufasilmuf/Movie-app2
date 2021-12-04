@@ -9,20 +9,39 @@ const PageInnation = (props) => {
 
   let ArrayOfPages = range(totalPages);
 
-  let handleClick = (p) => {
-    setPage(p);
+  let PageNumbers = ArrayOfPages.slice(0, 5);
+
+  let handleClick = (CurPage) => {
+    setPage(CurPage);
   };
+
+  let handleNext = () => {};
+
+  let handlePrevious = () => {};
 
   return (
     <div className="PageInnation">
       <Pagination className="style">
-        {ArrayOfPages.map((page, idx) => {
+        <PaginationItem>
+          <PaginationLink onClick={handlePrevious}>previous</PaginationLink>
+        </PaginationItem>
+        {PageNumbers.map((page, idx) => {
+          const currentPageNo = idx + 1;
           return (
-            <PaginationItem onClick={handleClick()}>
-              <PaginationLink>{idx + 1}</PaginationLink>
+            <PaginationItem active={currentPageNo === pageNo}>
+              <PaginationLink
+                onClick={() => {
+                  handleClick(currentPageNo);
+                }}
+              >
+                {currentPageNo}
+              </PaginationLink>
             </PaginationItem>
           );
         })}
+        <PaginationItem>
+          <PaginationLink onClick={handleNext}>Next</PaginationLink>
+        </PaginationItem>
       </Pagination>
       {/* 
       first ,previous and next last

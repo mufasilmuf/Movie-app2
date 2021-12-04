@@ -4,11 +4,16 @@ label {
 .HeadingCard {
   margin: 0px 0 5px 0;
   align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 .Main_Container {
   display: flex;
   flex-direction: row;
-  margin: 10px 100px;
+  margin: 10px 100px 100px 100px;
 }
 .left {
   width: 500px;
@@ -38,7 +43,7 @@ label {
   .Main_Container {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 10px 0 100px 0;
   }
   .left {
     width: 100%;
@@ -57,15 +62,18 @@ label {
     width: 100%;
     align-items: center;
   }
-  .Detail_Content {
-    margin-top: 10px;
-    margin-bottom: 100px;
+}
+@media (max-width: 500px) {
+  .HeadingCard,
+  .Header_header,
+  .left,
+  .right {
+    width: 430px;
+  }
+  .link {
+    display: none;
   }
   .HeadingCard {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
+    padding: 10px;
   }
 }

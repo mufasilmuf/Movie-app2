@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="p-3 bg-dark text-white" id="Footer">
       Copyrights 2021 <Copyright />
-      mufeeth.com
+      Mufeeth.Com
     </div>
   );
 };

@@ -1,10 +1,15 @@
 import React from "react";
 
+import "./header.css";
+import logo from "../../assets/logo.png";
+
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-primary">
+    <nav className="navbar navbar navbar-light bg-primary">
       <div className="container-fluid">
-        <div className="navbar-brand text-white">Movie App</div>
+        <div className="navbar-brand text-white">
+          <img className="Logo" src={logo} alt="logo" />
+        </div>
         <button
           className="navbar-toggler"
           type="button"

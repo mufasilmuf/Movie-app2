@@ -125,11 +125,11 @@ const Home = () => {
               </tbody>
             </table>
 
-            {/* <PageInnation
+            <PageInnation
               totalPages={TotalPage}
               setPage={setpage}
               pageNo={page}
-            /> */}
+            />
           </div>
         )}
       </div>
